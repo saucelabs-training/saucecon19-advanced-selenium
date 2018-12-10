@@ -48,9 +48,9 @@ public class LogInTest extends BaseSauce {
         Map<String, String> blankPassword = new HashMap<String, String>();
         blankPassword.put("password", "");
 
-        User user = new User(blankPassword);
-        String username = user.getUsername();
-        String password = user.getPassword();
+        User user = "";
+        String username ="";
+        String password = "";
 
         WebDriverWait explicitWait = new WebDriverWait(driver, 10);
 
@@ -61,12 +61,8 @@ public class LogInTest extends BaseSauce {
         driver.findElement(By.cssSelector("[data-test='password']")).sendKeys(password);
         driver.findElement(By.className("login-button")).submit();
 
-        WebElement error = explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.className("fa-times-circle")));
-        String cssAttributeStartsWith = "svg[data-icon^=times]";
+        Boolean result = explicitWait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/inventory.html"));
 
-        Boolean result = driver.findElements(By.cssSelector(cssAttributeStartsWith)).size() > 0;
-
-        TestCase.assertEquals(error, driver.findElement(By.cssSelector(cssAttributeStartsWith)));
         TestCase.assertTrue(result);
 
         if (result){
@@ -82,9 +78,9 @@ public class LogInTest extends BaseSauce {
         Map<String, String> blankPassword = new HashMap<String, String>();
         blankPassword.put("password", "");
 
-        User user = User.blankPassword();
-        String username = user.getUsername();
-        String password = user.getPassword();
+        User user = "";
+        String username = "";
+        String password = "";
 
 
         WebDriverWait explicitWait = new WebDriverWait(driver, 10);
@@ -96,12 +92,8 @@ public class LogInTest extends BaseSauce {
         driver.findElement(By.cssSelector("[data-test='password']")).sendKeys(password);
         driver.findElement(By.className("login-button")).submit();
 
-        WebElement error = explicitWait.until(ExpectedConditions.presenceOfElementLocated(By.className("fa-times-circle")));
-        String cssAttributeStartsWith = "svg[data-icon^=times]";
+        Boolean result = explicitWait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/inventory.html"));
 
-        Boolean result = driver.findElements(By.cssSelector(cssAttributeStartsWith)).size() > 0;
-
-        TestCase.assertEquals(error, driver.findElement(By.cssSelector(cssAttributeStartsWith)));
         TestCase.assertTrue(result);
 
         if (result){
