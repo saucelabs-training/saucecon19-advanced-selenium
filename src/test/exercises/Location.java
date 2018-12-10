@@ -53,13 +53,13 @@ public class Location extends Base {
     public void locatePasswordField() {
 
         // Update the class Name field:
-        String className = "login-input";
+        String className = "";
 
         // There is more than one Tag name that matches the "login-input" field, so you
         // need to specify which number it is in the tagIndex value
-        String tagName = "input";
-        String cssLocator = "[data-test='password']";
-        Integer tagIndex = 1;
+        String tagName = "";
+        String cssLocator = "";
+        Integer tagIndex = ;
 
 
 
@@ -82,13 +82,13 @@ public class Location extends Base {
         // Update these fields:
 
         //String name = "LOGIN";
-        String className = "login-button";
+        String className = "";
 
         // There is more than one Tag name that matches the Sign In Button, so you
         // need to specify which number it is in the tagIndex value
-        String tagName = "input";
-        String cssLocator = "[value='LOGIN']";
-        Integer tagIndex = 2;
+        String tagName = "";
+        String cssLocator = "";
+        Integer tagIndex = ;
 
 
 
