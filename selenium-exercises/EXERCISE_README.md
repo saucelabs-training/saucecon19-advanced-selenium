@@ -33,7 +33,7 @@ See the parent `README.md` of this repository for instructions on how to complet
 
 ### Exercise 1: Locate Provided Elements
 
-1. Checkout branch `01_locate_elements `.
+1. Checkout branch `065 `.
 2. Navigate to **src > test > exercsies > Location**.
 3. Visit [www.saucedemo.com](https://www.saucedemo.com) and use the developer tools to inspect the following elements:
     * Username Field
@@ -66,7 +66,7 @@ See the parent `README.md` of this repository for instructions on how to complet
 
 ### Exercise 2: Implement Advanced Locators
 
-1. Checkout branch `02_advanced_locations `.
+1. Checkout branch `067 `.
 2. Navigate to **src > test > exercises > LocationAdvanced**.
 3. Visit [www.saucedemo.com](https://www.saucedemo.com) and use a browser developer tool to create, validate, and test CSS Selectors. For example in Google Chrome navigate to **View > Developer > Developer Tools** and use the console like so:
     
@@ -110,13 +110,13 @@ See the parent `README.md` of this repository for instructions on how to complet
 
     ![LocationAdvanced-Passed Example](images/locationsAdvanced-passed.png)
     
-Checkout branch `03_test_actions` to see the answers.
+Checkout branch `068` to see the answers.
 
 <br />
     
 ### Exercise 3: Create Element Actions
 
-1. Checkout branch `03_test_actions `.
+1. Checkout branch `068 `.
 2. Navigate to **src > test > exercsies > Actions**.
 3. In the `@Test` method **`signUpExistingAccount()`**, make note of the following variables:
     ```
@@ -133,11 +133,11 @@ Checkout branch `03_test_actions` to see the answers.
 8. Save your changes and run the **Actions** class, you should see the following output:
    ![Actions Example](images/actions-passed.png)
    
-   Checkout branch `04_full_journey` to see the answers.
+   Checkout branch `069` to see the answers.
    <br />
 
 ### Exercise 4: Implement Full Journey
-1. Checkout branch `04_full_journey `.
+1. Checkout branch `069 `.
 2. Navigate to **src > test > exercsies > UserJourney**. 
 3. Fill out the following **`String`** variables:
     ```
@@ -152,7 +152,7 @@ Checkout branch `03_test_actions` to see the answers.
     
 ### Exercise 5: Write Test Assertion
 #### Part One: Run the Test on Sauce Labs
-1. Checkout branch `05_test_assertions`.
+1. Checkout branch `070`.
 2. Navigate to **src > test > authentication > LogInTest**
 3. In the IntelliJ toolbar navigate to **Run > Run Edit Configuration**.
 4. In the configuration dialog box, locate **Environment Variables** and click the folder icon
@@ -167,9 +167,66 @@ Checkout branch `03_test_actions` to see the answers.
     ``` 
 
 6. Select **OK** in both the Environment Variables and Edit Configuration dialog boxes.
-7. In the **`LogInTest`** class, change the class extension from **`Base`** to **`BaseSauce`**.
+7. Create a new Base class for running tests on Sauce Labs.
+    * Create a new Java class in the `base` package called **`BaseSauce.java`**
+    * Add the following at the top of the file:
+    ```
+    package test.base;
+    import org.junit.Before;
+    import org.junit.Rule;
+    import org.junit.rules.TestName;
+    import org.openqa.selenium.MutableCapabilities;
+    import org.openqa.selenium.chrome.ChromeOptions;
+    import org.openqa.selenium.remote.DesiredCapabilities;
+    import org.openqa.selenium.remote.RemoteWebDriver;
+    import java.net.MalformedURLException;
+    import java.net.URL;
+
+    public class BaseSauce extends Base {
+
+    @Rule
+    public TestName testName = new TestName()  {
+        public String getMethodName() {
+        return String.format("%s", super.getMethodName());
+        }
+    };
+    ```
+    * Create a `@Before` method with the following:
+    ```
+    public void setup() throws MalformedURLException {
+        String username = System.getenv("SAUCE_USERNAME");
+        String accessKey = System.getenv("SAUCE_ACCESS_KEY");
+        String methodName = testName.getMethodName();
+
+        String sauceUrl = "https://"+username+":"+accessKey+"@ondemand.saucelabs.com/wd/hub";
+        URL url = new URL(sauceUrl);
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("w3c", true);
+    ```
+    * Create your `MutableCapabilities` object with the following:
+    ```
+    MutableCapabilities sauceCaps = new MutableCapabilities();
+        sauceCaps.setCapability("name", methodName);
+        sauceCaps.setCapability("user", username);
+        sauceCaps.setCapability("accessKey", accessKey);
+    ```
+    * Create your `DesiredCapabilities` object with the following:
+    ```
+    DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("sauce:options", sauceCaps);
+        caps.setCapability("browserName", "googlechrome");
+        caps.setCapability("browserVersion", "61.0");
+        caps.setCapability("platformName", "windows 10");
+        caps.setCapability("seleniumVersion", "3.11.0");
+        caps.setCapability(ChromeOptions.CAPABILITY,  chromeOptions);
+    ```
+    * Pass the url, and caps objects into the remote web driver like so:
+    ```
+    driver = new RemoteWebDriver(url, caps);
+    ```
 #### Part Two: Write the Assertion
-7. Navigate back to the **LogInTest** class. In the `@Test` method **`signInSuccessfully()`**, create the following **`Boolean`**:
+8. Navigate back to the **LogInTest** class. In the `@Test` method **`signInSuccessfully()`**, create the following **`Boolean`**:
     ```
     Boolean result = explicitWait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/inventory.html"));
     ```
@@ -242,16 +299,41 @@ Checkout branch `03_test_actions` to see the answers.
 
 ### Exercise 8: Create Page Objects
 1. Checkout branch ``08_create_page_objects``.
-2. In the package **Pages**, create a two new classes:
+2. In the package **Pages**, make note of the two new classes:
     * **SignInPage**
     * **HomePage**
-3. Select **HomePage** and add the following:
+3. Select **HomePage** and edit the following:
+    * Add the following class selector for the sauce bot icon on the inventory.html page
     ```
-    
+    private By sauceBot = By.className("peek");
     ```
-4. Select **SignInPage** and add the following:
+    * Add a `Boolean` value at the bottom of the page to confirm the presence of **`sauceBot`**:
     ```
+    Boolean isSignedIn() { return driver.findElements(menu).size > 0; }
     ```
-5. Run all tests in the **LogInTest** class to confirm if they still pass in both IntelliJ and the Sauce Labs Dashboard.
-6. If you would like to see the final results checkout branch to `09_base_page_example`, 
-    > To test your knowledge, try and create a BasePage object in order to abstract your re-usuable selenium actions such as `sendKeys()` or `click()`, Then to see the `BasePage` ojbect answers checkout the final branch: `09_complete_answers`.
+    * Uncomment the package import at the top of the file:
+    ```
+    import org.openqa.selenium.By;
+    ```
+4. Select **SignInPage** and edit the following methods:
+    * **`signIn`**:
+    ```
+    this.driver = driver;
+    ```
+    * **`signInUnsuccessfully`**:
+    ```
+    fillForm(data);
+    ```
+    * **`hasErrorMessage`**:
+    ```
+    return driver.findElements(error).size() > 0;
+    ```
+    * **`fillForm`**:
+    ```
+    driver.findElement(userField).sendKeys(data.getUsername());
+    driver.findElement(passwordField).sendKeys(data.getPassword());
+    driver.findElement(loginButton).click();
+    ```
+5. Save your changes and run all tests in the **LogInTest** class to confirm if they still pass in both IntelliJ and the Sauce Labs Dashboard.
+6. To see the answers, checkout branch `09_base_page_example`
+    >To test your knowledge, try and create a `BasePage` object to abstract re-usable actions such as `sendKeys()` and `click()`. You can checkout the branch `09_complete_answers` to see the answer.
