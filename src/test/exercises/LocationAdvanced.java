@@ -29,11 +29,11 @@ public class LocationAdvanced extends Base {
         // Define Locators
 
         //String cssId = "#session_email";
-        String cssClassName = ".login-input";
-        String cssAttribute = "input[data-test='username']";
-        String cssMultAttribute = "input[data-test='username'][placeholder='Username']";
-        String cssDescendant = "form input[data-test]";
-        String cssChild = "div.login-box > form > input";
+        String cssClassName = "";
+        String cssAttribute = "";
+        String cssMultAttribute = "";
+        String cssDescendant = "";
+        String cssChild = "";
 
 
 
@@ -62,15 +62,15 @@ public class LocationAdvanced extends Base {
 
         // Define Locators
 
-        String cssDescendant = "div.login-box > form > input:nth-child(2)";
-        String css2ndChild = "input:nth-child(2)";
-        String cssSecondChildFromEnd = "input:nth-last-child(2)";
+        String cssDescendant = "";
+        String css2ndChild = "";
+        String cssSecondChildFromEnd = "";
 
         // IGNORE THE DETAILS OF THE ASSERTIONS BELOW
         // ALL YOU NEED TO KNOW IS THAT IF YOU RUN THIS TEST
         // WITH THE RIGHT VALUES ABOVE IT WILL PASS
 
-        WebElement passField = driver.findElement(By.cssSelector("input[data-test='password'][placeholder='Password']"));
+        WebElement passField = driver.findElement(By.cssSelector(""));
 
         assertEquals(passField, driver.findElement(By.cssSelector(cssDescendant)));
         assertEquals(passField, driver.findElement(By.cssSelector(css2ndChild)));
@@ -86,12 +86,12 @@ public class LocationAdvanced extends Base {
 
         // Define Locators
 
-        String cssLastChild = "input:last-child";
-        String cssThirdChild = "input:nth-child(3)";
-        String cssAttributeStartsWith = "input[type^=sub]";
-        String cssAttributeEndsWith = "input[type$=mit]";
-        String cssAttributeContains = "input[type*=bm";
-        String cssPreviousSiblings = "input ~ input ~ input";
+        String cssLastChild = "";
+        String cssThirdChild = "";
+        String cssAttributeStartsWith = "";
+        String cssAttributeEndsWith = "";
+        String cssAttributeContains = "";
+        String cssPreviousSiblings = "";
 
 
 
