@@ -116,7 +116,7 @@ Double-click the installer package to begin the installation.
 
 2. **Configure the Selenium Standalone Server**
     * Open a browser and navigate to the [SeleniumHQ Downloads page](https://www.seleniumhq.org/download/).
-    * Under ** Selenium Standalone Server ** select the version link to download the file (extract/unzip the archive if necessary).
+    * Under **Selenium Standalone Server** select the version link to download the file (extract/unzip the archive if necessary).
         > You can download the package to any directory, just ensure you remember the location when configuring Selenium in IntelliJ.
     * In IntelliJ, select **File > Project Structure > Modules.**
     * Select the **Dependencies** tab and navigate to the bottom of the window.
