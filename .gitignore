@@ -1,6 +1,9 @@
 # Compiled files
 /out
 
+# IntelliJ workspace file
+.idea/workspace.iml
+
 # Log file
 *.log
 
