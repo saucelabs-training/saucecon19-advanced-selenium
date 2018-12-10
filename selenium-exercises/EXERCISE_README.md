@@ -167,6 +167,7 @@ Checkout branch `068` to see the answers.
     ``` 
 
 6. Select **OK** in both the Environment Variables and Edit Configuration dialog boxes.
+7. In the **`LogInTest`** class, change the class extension from **`Base`** to **`BaseSauce`**.
 #### Part Two: Write the Assertion
 7. Navigate back to the **LogInTest** class. In the `@Test` method **`signInSuccessfully()`**, create the following **`Boolean`**:
     ```
