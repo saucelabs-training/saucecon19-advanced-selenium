@@ -109,7 +109,7 @@ Double-click the installer package to begin the installation.
     * In the **New Project** dialog window, select **Java** (default).
     * IntelliJ should automatically detect the JDK and appear in the **Project SDK** field. If you don't see the JDK, select **New** and navigate to where you installed the JDK. 
     * Select **Next**, then select **Create project from template > Java Hello World.**
-    * Name the project ** SauceDemo ** and select **Finish.** 
+    * Name the project **SauceDemo** and select **Finish.** 
         > you can also decide whether or not to display IntelliJ tool tips.
     * From the main toolbar, select **Run > Run 'Main'**.
         > In the main console at the bottom the words ` Hello World!` should appear, along with ` Process finished with exit code 0`. 
@@ -123,7 +123,7 @@ Double-click the installer package to begin the installation.
     * Select the **+** symbol, followed by **JARs or Directories.**
     * Navigate to the location of the **Selenium .jar** file and select **Open.**
     * Select **Apply** followed by **OK.**
-    * In the **Project** pane of IntelliJ, select the triangle next to ** External Libraries **
+    * In the **Project** pane of IntelliJ, select the triangle next to **External Libraries**
         > You should see the Selenium Standalone Server `.jar` file
 
 3. **Configure the TestNG Framework**
