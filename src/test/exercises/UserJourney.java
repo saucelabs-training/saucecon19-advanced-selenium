@@ -18,9 +18,9 @@ public class UserJourney extends Base {
         driver.get("https://www.saucedemo.com");
 
         // Specify Data
-        String firstname = "james";
-        String lastname = "tacker";
-        String postal = "94551";
+        String firstname = "";
+        String lastname = "";
+        String postal = "";
 
         // Ignore the following selectors
         String username = "standard_user";
