@@ -1,7 +1,6 @@
 package test.exercises;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import test.base.Base;
@@ -29,16 +28,12 @@ public class Actions extends Base {
         String loginBtn = "[value='LOGIN']";
 
         // wait for username field
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(userField)));
 
         // send username keystrokes
-        driver.findElement(By.cssSelector(userField)).sendKeys(username);
 
         // send password keystrokes
-        driver.findElement(By.cssSelector(passField)).sendKeys(password);
 
         // click login button to submit keystrokes
-        driver.findElement(By.cssSelector(loginBtn)).click();
 
         // wait for expected URL to appear
         wait.until(ExpectedConditions.urlMatches("https://www.saucedemo.com/inventory.html"));
