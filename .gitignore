@@ -2,7 +2,8 @@
 /out
 
 # IntelliJ workspace file
-.idea/workspace.iml
+.idea/encodings.xml
+.idea/workspace.xml
 
 # Log file
 *.log
