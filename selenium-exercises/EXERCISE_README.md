@@ -33,7 +33,7 @@ See the parent `README.md` of this repository for instructions on how to complet
 
 ### Exercise 1: Locate Provided Elements
 
-1. Checkout branch `065 `.
+1. Checkout branch `01_locate_elements `.
 2. Navigate to **src > test > exercsies > Location**.
 3. Visit [www.saucedemo.com](https://www.saucedemo.com) and use the developer tools to inspect the following elements:
     * Username Field
@@ -66,7 +66,7 @@ See the parent `README.md` of this repository for instructions on how to complet
 
 ### Exercise 2: Implement Advanced Locators
 
-1. Checkout branch `067 `.
+1. Checkout branch `02_advanced_locations `.
 2. Navigate to **src > test > exercises > LocationAdvanced**.
 3. Visit [www.saucedemo.com](https://www.saucedemo.com) and use a browser developer tool to create, validate, and test CSS Selectors. For example in Google Chrome navigate to **View > Developer > Developer Tools** and use the console like so:
     
@@ -110,13 +110,13 @@ See the parent `README.md` of this repository for instructions on how to complet
 
     ![LocationAdvanced-Passed Example](images/locationsAdvanced-passed.png)
     
-Checkout branch `068` to see the answers.
+Checkout branch `03_test_actions` to see the answers.
 
 <br />
     
 ### Exercise 3: Create Element Actions
 
-1. Checkout branch `068 `.
+1. Checkout branch `03_test_actions `.
 2. Navigate to **src > test > exercsies > Actions**.
 3. In the `@Test` method **`signUpExistingAccount()`**, make note of the following variables:
     ```
@@ -133,11 +133,11 @@ Checkout branch `068` to see the answers.
 8. Save your changes and run the **Actions** class, you should see the following output:
    ![Actions Example](images/actions-passed.png)
    
-   Checkout branch `069` to see the answers.
+   Checkout branch `04_full_journey` to see the answers.
    <br />
 
 ### Exercise 4: Implement Full Journey
-1. Checkout branch `069 `.
+1. Checkout branch `04_full_journey `.
 2. Navigate to **src > test > exercsies > UserJourney**. 
 3. Fill out the following **`String`** variables:
     ```
@@ -152,7 +152,7 @@ Checkout branch `068` to see the answers.
     
 ### Exercise 5: Write Test Assertion
 #### Part One: Run the Test on Sauce Labs
-1. Checkout branch `070`.
+1. Checkout branch `05_test_assertions`.
 2. Navigate to **src > test > authentication > LogInTest**
 3. In the IntelliJ toolbar navigate to **Run > Run Edit Configuration**.
 4. In the configuration dialog box, locate **Environment Variables** and click the folder icon
@@ -253,3 +253,5 @@ Checkout branch `068` to see the answers.
     ```
     ```
 5. Run all tests in the **LogInTest** class to confirm if they still pass in both IntelliJ and the Sauce Labs Dashboard.
+6. If you would like to see the final results checkout branch to `09_base_page_example`, 
+    > To test your knowledge, try and create a BasePage object in order to abstract your re-usuable selenium actions such as `sendKeys()` or `click()`, Then to see the `BasePage` ojbect answers checkout the final branch: `09_complete_answers`.
