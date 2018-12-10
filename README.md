@@ -104,7 +104,7 @@ Double-click the installer package to begin the installation.
 
 #### Ensure IntelliJ is Correctly Configured:
 
-1. ** Run Hello World **
+1. **Run Hello World**
     * In IntelliJ, select **File > New > Project. **
     * In the ** New Project ** dialog window, select ** Java ** (default).
     * IntelliJ should automatically detect the JDK and appear in the ** Project SDK ** field. If you don't see the JDK, select ** New ** and navigate to where you installed the JDK. 
@@ -114,7 +114,7 @@ Double-click the installer package to begin the installation.
     * From the main toolbar, select ** Run > Run 'Main' **.
         > In the main console at the bottom the words ` Hello World!` should appear, along with ` Process finished with exit code 0`. 
 
-2. ** Configure the Selenium Standalone Server **
+2. **Configure the Selenium Standalone Server**
     * Open a browser and navigate to the [SeleniumHQ Downloads page](https://www.seleniumhq.org/download/).
     * Under ** Selenium Standalone Server ** select the version link to download the file (extract/unzip the archive if necessary).
         > You can download the package to any directory, just ensure you remember the location when configuring Selenium in IntelliJ.
@@ -126,7 +126,7 @@ Double-click the installer package to begin the installation.
     * In the **Project** pane of IntelliJ, select the triangle next to ** External Libraries **
         > You should see the Selenium Standalone Server `.jar` file
 
-3. ** Configure the TestNG Framework **
+3. **Configure the TestNG Framework**
     * In IntelliJ, select **File > Project Structure > Modules.**
     * Select the **Dependecies** tab and navigate to the bottom of the window.
     * elect the ** + ** symbol, followed by ** JARs or Directories. **
